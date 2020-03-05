@@ -1,0 +1,78 @@
+SELECT ALL records from table Customers.
+select * from customers;
+
+SELECT records only from the name column in the Customers table.
+
+
+Show the name of the Customer whose CustomerID is 1.
+select customer_id from customers 
+where first_name = 1;
+
+UPDATE the record for CustomerID = 1 on the Customer table so that the name is “Lerato Mabitso”.
+update customers 
+set first_name = 'lerato'
+where customer_id = 1;
+
+
+update customers 
+set last_name = 'mabitso'
+where customer_id = 1;
+
+DELETE the record from the Customers table for customer 2 (CustomerID = 2).
+delete from customers 
+where customer_id = 2;
+
+Select all unique statuses from the Orders table and get a count of the number of orders for each unique status.
+select count (status) from orders
+where status = 'shipped'
+;
+
+Return the MAXIMUM payment made on the PAYMENTS table.
+select max(amount)
+from payments
+
+Select all customers from the “Customers” table, sorted by the “Country” column.
+select customer_id 
+from customers 
+where country =  country;
+
+Select all products with a price BETWEEN R100 and R600.
+select product_name
+from products
+where buy_price between 100 and 600
+
+Select all fields from “Customers” where country is “Germany” AND city is “Berlin”.
+select customer_id
+from customers
+where country = 'germany' city = 'berlin'
+
+Select all fields from “Customers” where city is “Cape Town” OR “Durban”.
+select customer_id
+from customers
+where city  between cape_town and durban
+
+Select all records from Products where the Price is GREATER than R500.
+select * 
+from products
+where buy_price > 500
+
+
+Return the sum of the Amounts on the Payments table.
+select sum(buy_price) as rands from products;
+
+
+Count the number of shipped orders in the Orders table.
+select count (status) from orders
+where status = 'not shipped'
+;
+
+
+Return the average price of all Products, in Rands and in Dollars (assume the exchange rate is R12 to the Dollar).
+
+
+
+Using INNER JOIN create a query that selects all Payments with Customer information.
+
+
+Select all products that have turnable front wheels.
+
