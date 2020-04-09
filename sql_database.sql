@@ -1,10 +1,9 @@
-1. Create a database called “Umuzi”.
+. Create a database called “Umuzi”.
 
 CREATE DATABASE Umuzi;
 
 
-2. Create the following tables in the Umuzi database:
-3. Create a primary key for each table with auto-increment (make sure you correctly specify the data types, e.g. the ID    	field should be int).
+. Create the following tables in the Umuzi database:3. Create a primary key for each table with auto-increment (make sure you correctly specify the data types, e.g. the ID    	field should be int).
 
     
 CREATE TABLE Customers (
@@ -43,7 +42,7 @@ Description VARCHAR(300),
 );
 
 
-4. Create foreign keys so that every ID in the order table references an existing ID in the tables referenced (e.g.,       ProductID, EmployeeID, etc).
+ Create foreign keys so that every ID in the order table references an existing ID in the tables referenced (e.g.,       ProductID, EmployeeID, etc).
  
 CREATE TABLE Orders (
 OrderID SERIAL PRIMARY KEY,
@@ -57,9 +56,9 @@ Status VARCHAR(20)
 );
 
 
-5. INSERT the records in the tables below into the table you created in step 2.
+. INSERT the records in the tables below into the table you created in step 2.
 
-a. Inserting customers information into Customers table.
+. Inserting customers information into Customers table.
 
 INSERT into Customers (
 FirstName,
@@ -122,7 +121,7 @@ Country
 'Germany'
 );
 
-b. Inserting employees data into Employees table
+. Inserting employees data into Employees table
 
 INSERT into employees (
 FirstName,
@@ -148,7 +147,7 @@ values (
 'Accountant'
 );
 
-c. Inserting products information into Products table
+. Inserting products information into Products table
 
 INSERT into Products(
 ProductName, 
@@ -168,7 +167,7 @@ values (
 '700.60'
 );
 
-d. Inserting payment information into the Payments table.
+. Inserting payment information into the Payments table.
 
 INSERT into Payments(
 PaymentDate,
@@ -192,7 +191,7 @@ UPDATE Payments SET CustomerID = 4 WHERE paymentID =  3;
 
 
 
-e. Inserting orders information into orders table
+. Inserting orders information into orders table
 
 INSERT into Orders (
 DateRequired,
@@ -239,8 +238,8 @@ UPDATE orders SET productID = 3 WHERE orderID = 3;
 UPDATE orders SET paymentID = 3 WHERE orderID = 3;
 UPDATE orders SET fulfilledByEmployeeID = 3 WHERE orderID = 3;
 
-----------------------------------------------------------------------------------------------------------------------------
-STEP 2
+/****************************************************************************************************************************/
+part 2
 
 SELECT ALL records from table Customers.
 select * from customers;
