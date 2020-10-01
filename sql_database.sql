@@ -1,12 +1,10 @@
-. Create a database called “Umuzi”.
-
-CREATE DATABASE Umuzi;
+. ------------------------------------------Create a database called “Umuzi”.--------------------------------
 
 
-. Create the following tables in the Umuzi database:3. Create a primary key for each table with auto-increment (make sure you correctly specify the data types, e.g. the ID    	field should be int).
+.-- Create the following tables in the Umuzi database:3. Create a primary key for each table with auto-increment.--
 
     
-CREATE TABLE Customers (
+create table Customers (
 CustomerID SERIAL PRIMARY KEY,
 FirstName VARCHAR(50),
 LastName VARCHAR(50),
@@ -18,7 +16,7 @@ City VARCHAR(20),
 Country VARCHAR(50)
 );
 
-CREATE TABLE Employees (
+create table Employees (
 EmployeeID SERIAL PRIMARY KEY,
 FirstName VARCHAR(50),
 LastName VARCHAR(50),
@@ -27,14 +25,14 @@ JobTitle VARCHAR(20)
 );
 
 
-CREATE TABLE Payments(
+create table Payments(
 PaymentId SERIAL PRIMARY KEY,
 PaymentDate DATE,
 "Amount(R)" DECIMAL 
 );
 
 
-CREATE TABLE Products(
+create table Products(
 ProductId SERIAL PRIMARY KEY,
 ProductName VARCHAR(100),	
 Description VARCHAR(300),
@@ -42,9 +40,9 @@ Description VARCHAR(300),
 );
 
 
- Create foreign keys so that every ID in the order table references an existing ID in the tables referenced (e.g.,       ProductID, EmployeeID, etc).
+ --Create foreign keys so that every ID in the order table references an existing ID in the tables referenced . --
  
-CREATE TABLE Orders (
+create table Orders (
 OrderID SERIAL PRIMARY KEY,
 ProductID INT REFERENCES Products(ProductID),
 PaymentID INT REFERENCES Payments(PaymentID),
@@ -56,11 +54,11 @@ Status VARCHAR(20)
 );
 
 
-. INSERT the records in the tables below into the table you created in step 2.
+. --insert the records in the tables below into the table you created in step 2.--
 
 . Inserting customers information into Customers table.
 
-INSERT into Customers (
+insert into Customers (
 FirstName,
 LastName,
 Gender,
@@ -121,9 +119,9 @@ Country
 'Germany'
 );
 
-. Inserting employees data into Employees table
+. --Inserting employees data into Employees table--
 
-INSERT into employees (
+insert into employees (
 FirstName,
 LastName, 
 Email,
@@ -147,9 +145,9 @@ values (
 'Accountant'
 );
 
-. Inserting products information into Products table
+.-- Inserting products information into Products table--
 
-INSERT into Products(
+insert into Products(
 ProductName, 
 Descrption,
 BuyPrice
@@ -167,9 +165,9 @@ values (
 '700.60'
 );
 
-. Inserting payment information into the Payments table.
+. --Inserting payment information into the Payments table.--
 
-INSERT into Payments(
+insert into Payments(
 PaymentDate,
 Amount
 ) values (
@@ -185,15 +183,15 @@ Amount
 '700.60'
 );
 
-UPDATE Payments SET CustomerID = 1 WHERE paymentID =  1;
-UPDATE Payments SET CustomerID = 5 WHERE paymentID =  2; 
-UPDATE Payments SET CustomerID = 4 WHERE paymentID =  3; 
+update Payments SET CustomerID = 1 where paymentID =  1;
+update Payments SET CustomerID = 5 where paymentID =  2; 
+update Payments SET CustomerID = 4 where paymentID =  3; 
 
 
 
-. Inserting orders information into orders table
+. --Inserting orders information into orders table--
 
-INSERT into Orders (
+insert into Orders (
 DateRequired,
 Status)
 values (
@@ -205,7 +203,7 @@ values (
 'Not shipped'
 );
 
-INSERT into Orders (
+insert into Orders (
 DateRequired,
 DateShipped,
 Status)
@@ -216,7 +214,7 @@ values (
 );
 
 
-INSERT into Orders (
+insert into Orders (
 DateRequired,
 DateShipped,
 Status)
@@ -226,25 +224,25 @@ values (
 'shipped'
 );
 
-UPDATE Orders SET ProductID = 1 WHERE OrderID =  1;
-UPDATE Orders SET PaymentID = 1 WHERE OrderID = 1;
-UPDATE Orders SET FulfilledByEmployeeID = 2 WHERE OrderID = 1;
+update Orders set ProductID = 1 where OrderID =  1;
+update Orders set PaymentID = 1 where OrderID = 1;
+update Orders set FulfilledByEmployeeID = 2 where OrderID = 1;
 
-UPDATE Orders SET ProductID = 1 WHERE OrderID =  2;
-UPDATE Orders SET PaymentID = 2 WHERE OrderID = 2;
-UPDATE Orders SET FulfilledByEmployeeID = 3 WHERE OrderID = 2;
+update Orders set ProductID = 1 where OrderID =  2;
+update Orders set PaymentID = 2 where OrderID = 2;
+update Orders set FulfilledByEmployeeID = 3 where OrderID = 2;
 
-UPDATE orders SET productID = 3 WHERE orderID = 3;
-UPDATE orders SET paymentID = 3 WHERE orderID = 3;
-UPDATE orders SET fulfilledByEmployeeID = 3 WHERE orderID = 3;
+update orders set productID = 3 where orderID = 3;
+update orders set paymentID = 3 where orderID = 3;
+update orders set fulfilledByEmployeeID = 3 where orderID = 3;
 
-/****************************************************************************************************************************/
-part 2
 
-SELECT ALL records from table Customers.
+----------------------------------------------------------part 2------------------------------------------------------
+
+select ALL records from table Customers.
 select * from customers;
 
-SELECT records only from the name column in the Customers table.
+select records only from the name column in the Customers table.
 select first_name from customers
 
 
@@ -253,7 +251,7 @@ Show the name of the Customer whose CustomerID is 1.
 select customer_id from customers 
 where first_name = 1;
 
-UPDATE the record for CustomerID = 1 on the Customer table so that the name is .
+update the record for CustomerID = 1 on the Customer table so that the name is .
 update customers 
 set first_name = 'lerato'
 where customer_id = 1;
@@ -263,11 +261,11 @@ update customers
 set last_name = 'mabitso'
 where customer_id = 1;
 
-DELETE the record from the Customers table for customer 2 (CustomerID = 2).
+delete the record from the Customers table for customer 2 (CustomerID = 2).
 delete from customers 
 where customer_id = 2;
 
-Select all unique statuses from the Orders table and get a count of the number of orders for each unique status.
+select all unique statuses from the Orders table and get a count of the number of orders for each unique status.
 select count (status) from orders
 where status = 'shipped'
 ;
@@ -276,27 +274,27 @@ Return the MAXIMUM payment made on the PAYMENTS table.
 select max(amount)
 from payments
 
-Select all customers from the table, sorted by the column.
+select all customers from the table, sorted by the column.
 select customer_id 
 from customers 
 where country =  country;
 
-Select all products with a price BETWEEN R100 and R600.
+select all products with a price BETWEEN R100 and R600.
 select product_name
 from products
 where buy_price between 100 and 600
 
-Select all fields from where country is AND city is .
+select all fields from where country is AND city is .
 select customer_id
 from customers
 where country = 'germany' city = 'berlin'
 
-Select all fields from where city is OR .
+select all fields from where city is OR .
 select customer_id
 from customers
 where city  between cape_town and durban
 
-Select all records from Products where the Price is GREATER than R500.
+select all records from Products where the Price is GREATER than R500.
 select * 
 from products
 where buy_price > 500
@@ -312,12 +310,12 @@ where status = 'not shipped'
 ;
 
 
-Return the average price of all Products, in Rands and in Dollars (assume the exchange rate is R12 to the Dollar).
-SELECT AVG(buy_price) as rands
-FROM products
+Return the average price of all Products, in Rands and in Dollars.
+select AVG(buy_price) as rands
+from products
 
-SELECT AVG(buy_price * 12) as rands
-FROM products
+select AVG(buy_price * 12) as rands
+from products
 
 
 
@@ -338,7 +336,7 @@ inner join customers on payments.customer_id  = customers.customer_id;
 
 
 
-Select all products that have turnable front wheels.
+select all products that have turnable front wheels.
 
 select * from products 
 where description = 'turnable front wheels'
